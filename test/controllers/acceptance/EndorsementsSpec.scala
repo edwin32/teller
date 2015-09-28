@@ -99,7 +99,7 @@ class EndorsementsSpec extends PlayAppSpec with IsolatedMockFactory {
 
   def e4 = {
     (personService.find(_: Long)) expects 1L returning Some(person)
-    val endorsement = Endorsement(None, 1L, "blabla", "katja", Some("test"))
+    val endorsement = Endorsement(None, 1L, 0, "blabla", "katja", Some("test"))
     (personService.insertEndorsement _) expects endorsement
     val req = fakePostRequest().
       withFormUrlEncodedBody("content" -> "blabla", "name" -> "katja", "company" -> "test")
@@ -130,7 +130,7 @@ class EndorsementsSpec extends PlayAppSpec with IsolatedMockFactory {
   }
 
   def e8 = {
-    val endorsement = Endorsement(Some(2L), 1L, "blabla", "katja", Some("test"))
+    val endorsement = Endorsement(Some(2L), 1L, 0, "blabla", "katja", Some("test"))
     (personService.updateEndorsement _) expects endorsement
     val req = fakePostRequest().
       withFormUrlEncodedBody("content" -> "blabla", "name" -> "katja", "company" -> "test")
