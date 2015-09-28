@@ -123,7 +123,7 @@ object Global extends WithFilters(CSRFFilter()) with GlobalSettings {
     if (sys.env.contains("DYNO") && sys.env("DYNO").equals("web.2")) {
       scheduleDailyAlerts
       scheduleProfileImprovementAlert
-    }                                T
+    }
   }
 
   /**
